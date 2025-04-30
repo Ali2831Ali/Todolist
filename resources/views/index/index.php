@@ -214,6 +214,7 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
     </style>
 </head>
 <body>
@@ -226,7 +227,7 @@
         </div>
         <div class="nav-item" data-target="#dashboardSection">
             <i class="fas fa-passport"></i>
-            Visa Task
+            Main
         </div>
         <div class="nav-item" data-target="#mytaskSection">
             <i class="fas fa-tasks"></i>
@@ -267,7 +268,6 @@
                     <span class="task-meta"> پنج بعد از ظهر</span>
                 </div>
                 <p>خرید کادو برای دوست دخترم که دوستش .</p>
-                </table>
             </div>
 
             <div class="status-container">
@@ -302,6 +302,12 @@
         </div>
 
     </div>
+
+    <?php
+    require __DIR__ . '/../myTasks/mytasks.php';
+    ?>
+
+
 </div>
 
 <script>
@@ -323,13 +329,6 @@
 
         $navItems.on('click', function() {
             setActiveNavItem($(this));
-        });
-
-        // Task Interactions
-        $('.task-card').on('click', function(e) {
-            if (!$(e.target).closest('.task-table').length) {
-                $(this).toggleClass('expanded');
-            }
         });
 
         // Status Filter
