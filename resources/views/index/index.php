@@ -233,7 +233,7 @@
             <i class="fas fa-tasks"></i>
             My Task
         </div>
-        <div class="nav-item" data-target="#taskCategorySection">
+        <div class="nav-item" data-target="#CategorySection">
             <i class="fas fa-layer-group"></i>
             Task Categories
         </div>
@@ -305,6 +305,7 @@
 
     <?php
     require __DIR__ . '/../myTasks/mytasks.php';
+    require __DIR__ . '/../myCategories/myCategory.php';
     ?>
 
 

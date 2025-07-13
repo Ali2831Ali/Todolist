@@ -1,5 +1,5 @@
 <style>
-    .myTask-box {
+    .myCategory-box {
         background: white;
         padding: 1.5rem;
         border-radius: 12px;
@@ -23,7 +23,7 @@
         box-shadow: var(--card-shadow);
     }
 
-    .task-table {
+    .Category-table {
         width: 100%;
         border-collapse: collapse;
         margin: 10px 0;
@@ -32,13 +32,13 @@
         color: #000;
     }
 
-    .task-table th,
-    .task-table td {
+    .Category-table th,
+    .Category-table td {
         padding: 12px 15px;
         text-align: right;
     }
 
-    .task-table th {
+    .Category-table th {
         font-weight: 600;
     }
 
@@ -54,7 +54,7 @@
     .edit-btn {
         background-color: #666;
         color: white;
-        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         padding: 11px;
         border-radius: 14px;
     }
@@ -62,7 +62,7 @@
     .delete-btn {
         background-color: red;
         color: white;
-        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         padding: 11px;
         border-radius: 14px;
     }
@@ -147,29 +147,29 @@
 
 </style>
 
-<div class="content-section" id="mytaskSection">
+<div class="content-section" id="CategorySection">
     <div class="main-content">
-        <div class="myTask-box">
-            <button id="addTaskBtn" class="btn">➕ افزودن تسک جدید</button>
+        <div class="myCategory-box">
+            <button id="addCategoryBtn" class="btn">➕ افزودن کتگوری جدید</button>
 
-            <!-- مدال افزودن تسک -->
-            <div class="modal-overlay" id="addModal">
+            <!-- مدال افزودن کتگوری -->
+            <div class="modal-overlay" id="addModalCat">
                 <div class="modal-content">
-                    <h3>🎯 افزودن تسک جدید</h3>
-                    <input type="text" class="modal-input" id="taskTitle" placeholder="عنوان تسک">
-                    <textarea class="modal-input" id="taskDescription" placeholder="توضیحات"></textarea>
+                    <h3>🎯 افزودن کتگوری جدید</h3>
+                    <input type="text" class="modal-input" id="CategoryTitle" placeholder="عنوان کتگوری">
+                    <textarea class="modal-input" id="CategoryDescription" placeholder="توضیحات"></textarea>
                     <div class="action-buttons">
-                        <button class="btn confirm-btn" id="saveTask">💾 ذخیره</button>
-                        <button class="btn cancel-btn" id="cancelAdd">❌ لغو</button>
+                        <button class="btn confirm-btn" id="saveCategoryCat">💾 ذخیره</button>
+                        <button class="btn cancel-btn" id="cancelAddCat">❌ لغو</button>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <table class="task-table">
+                <table class="Category-table">
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>اسم تسک</th>
+                        <th>اسم کتگوری</th>
                         <th>توضیحات</th>
                         <th>عملیات</th>
                     </tr>
@@ -177,58 +177,58 @@
                     <tbody>
                     <tr>
                         <td>1</td>
-                        <td>تسک نمونه</td>
+                        <td>کتگوری نمونه</td>
                         <td>این یک توضیح تستی است</td>
                         <td>
-                            <button class="action-btn edit-btn" onclick="openEditModal('1', 'تسک نمونه', 'این یک توضیح تستی است')">ویرایش</button>
-                            <button class="action-btn delete-btn" onclick="opendeleteModalTask('1')">حذف</button>
+                            <button class="action-btn edit-btn" onclick="openeditModalCat('1', 'کتگوری نمونه', 'این یک توضیح تستی است')">ویرایش</button>
+                            <button class="action-btn delete-btn" onclick="opendeleteModalCat('1')">حذف</button>
                         </td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>تسک دیگر</td>
-                        <td>توضیحات تکمیلی برای تسک</td>
+                        <td>کتگوری دیگر</td>
+                        <td>توضیحات تکمیلی برای کتگوری</td>
                         <td>
-                            <button class="action-btn edit-btn" onclick="openEditModal('2', 'تسک نمونه', 'این یک توضیح تستی است')">ویرایش</button>
-                            <button class="action-btn delete-btn" onclick="opendeleteModalTask('2')">حذف</button>
+                            <button class="action-btn edit-btn" onclick="openeditModalCat('2', 'کتگوری نمونه', 'این یک توضیح تستی است')">ویرایش</button>
+                            <button class="action-btn delete-btn" onclick="opendeleteModalCat('2')">حذف</button>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="modal-overlay" id="editModal">
+            <div class="modal-overlay" id="editModalCat">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3>ویرایش تسک</h3>
-                        <span class="modal-close" onclick="closeModal('editModal')">✖</span>
+                        <h3>ویرایش کتگوری</h3>
+                        <span class="modal-close" onclick="closeModal('editModalCat')">✖</span>
                     </div>
-                    <input type="hidden" id="editTaskId">
+                    <input type="hidden" id="editCategoryId">
                     <div class="input-group">
-                        <label>اسم تسک:</label>
-                        <input type="text" class="modal-input" id="editTaskName">
+                        <label>اسم کتگوری:</label>
+                        <input type="text" class="modal-input" id="editCategoryName">
                     </div>
                     <div class="input-group">
                         <label>توضیحات:</label>
-                        <textarea class="modal-input" id="editTaskDesc" rows="3"></textarea>
+                        <textarea class="modal-input" id="editCategoryDesc" rows="3"></textarea>
                     </div>
                     <div class="modal-actions">
-                        <button class="btn confirm-btn" onclick="saveChanges()">ذخیره تغییرات</button>
-                        <button class="btn cancel-btn" onclick="closeModal('editModal')">لغو</button>
+                        <button class="btn confirm-btn" onclick="saveChangesCat()">ذخیره تغییرات</button>
+                        <button class="btn cancel-btn" onclick="closeModal('editModalCat')">لغو</button>
                     </div>
                 </div>
             </div>
 
-            <div class="modal-overlay" id="deleteModalTask">
+            <div class="modal-overlay" id="deleteModalCat">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3>حذف تسک</h3>
-                        <span class="modal-close" onclick="closeModal('deleteModalTask')">✖</span>
+                        <h3>حذف کتگوری</h3>
+                        <span class="modal-close" onclick="closeModal('deleteModalCat')">✖</span>
                     </div>
-                    <p>آیا مطمئنید میخواهید تسک شماره <span id="deleteTaskId"></span> را حذف کنید؟</p>
+                    <p>آیا مطمئنید میخواهید کتگوری شماره <span id="deleteCategoryId"></span> را حذف کنید؟</p>
                     <div class="modal-actions">
-                        <button class="btn confirm-btn" onclick="confirmDelete()">بله، حذف شود</button>
-                        <button class="btn cancel-btn" onclick="closeModal('deleteModalTask')">خیر</button>
+                        <button class="btn confirm-btn" onclick="confirmDeleteCat()">بله، حذف شود</button>
+                        <button class="btn cancel-btn" onclick="closeModal('deleteModalCat')">خیر</button>
                     </div>
                 </div>
             </div>
@@ -241,47 +241,47 @@
 </div>
 
 <script>
-    let currentTaskId = null;
+    let currentCategoryId = null;
 
-    function openEditModal(taskId, taskName, taskDesc) {
-        currentTaskId = taskId;
-        $('#editTaskId').val(taskId);
-        $('#editTaskName').val('taskName');
-        $('#editTaskDesc').val(taskDesc);
-        $('#editModal').fadeIn(300);
+    function openeditModalCat(CategoryId, CategoryName, CategoryDesc) {
+        currentCategoryId = CategoryId;
+        $('#editCategoryId').val(CategoryId);
+        $('#editCategoryName').val('CategoryName');
+        $('#editCategoryDesc').val(CategoryDesc);
+        $('#editModalCat').fadeIn(300);
     }
 
-    function opendeleteModalTask(taskId) {
-        currentTaskId = taskId;
-        $('#deleteTaskId').text(taskId);
-        $('#deleteModalTask').fadeIn(300);
+    function opendeleteModalCat(CategoryId) {
+        currentCategoryId = CategoryId;
+        $('#deleteCategoryId').text(CategoryId);
+        $('#deleteModalCat').fadeIn(300);
     }
 
     function closeModal(modalId) {
         $('#' + modalId).fadeOut(300);
     }
 
-    function saveChanges() {
-        const newName = $('#editTaskName').val().trim();
-        const newDesc = $('#editTaskDesc').val().trim();
+    function saveChangesCat() {
+        const newName = $('#editCategoryName').val().trim();
+        const newDesc = $('#editCategoryDesc').val().trim();
 
         if(!newName) {
-            alert('لطفا نام تسک را وارد کنید');
+            alert('لطفا نام کتگوری را وارد کنید');
             return;
         }
 
-        $(`.task-table>tbody>tr:has(td:first-child:contains('${currentTaskId}'))`)
+        $(`.Category-table>tbody>tr:has(td:first-child:contains('${currentCategoryId}'))`)
             .find('td:nth-child(2)').text(newName)
             .next('td').text(newDesc);
 
-        closeModal('editModal');
+        closeModal('editModalCat');
     }
 
-    function confirmDelete() {
-        $(`.task-table>tbody>tr:has(td:first-child:contains('${currentTaskId}'))`).fadeOut(300, function() {
+    function confirmDeleteCat() {
+        $(`.Category-table>tbody>tr:has(td:first-child:contains('${currentCategoryId}'))`).fadeOut(300, function() {
             $(this).remove();
         });
-        closeModal('deleteModalTask');
+        closeModal('deleteModalCat');
     }
 
     $(document).ready(function() {
@@ -297,33 +297,33 @@
     });
     $(document).ready(function() {
         // باز کردن مدال
-        $('#addTaskBtn').click(() => $('#addModal').fadeIn(200));
+        $('#addCategoryBtn').click(() => $('#addModalCat').fadeIn(200));
 
         // بستن مدال
-        $('#cancelAdd').click(() => $('#addModal').fadeOut(200));
+        $('#cancelAddCat').click(() => $('#addModalCat').fadeOut(200));
 
-        // ذخیره تسک
-        $('#saveTask').click(function() {
-            const title = $('#taskTitle').val().trim();
-            const desc = $('#taskDescription').val().trim();
+        // ذخیره کتگوری
+        $('#saveCategoryCat').click(function() {
+            const title = $('#CategoryTitle').val().trim();
+            const desc = $('#CategoryDescription').val().trim();
 
             if(!title) {
-                alert('لطفا عنوان تسک را وارد کنید');
+                alert('لطفا عنوان کتگوری را وارد کنید');
                 return;
             }
 
             // اینجا کد افزودن به جدول/دیتابیس
-            console.log('تسک جدید:', {title, desc});
+            console.log('کتگوری جدید:', {title, desc});
 
             // پاک کردن فیلدها
-            $('#taskTitle, #taskDescription').val('');
-            $('#addModal').fadeOut(200);
+            $('#CategoryTitle, #CategoryDescription').val('');
+            $('#addModalCat').fadeOut(200);
         });
 
         // بستن مدال با کلیک خارج
         $(document).on('click', '.modal-overlay', function(e) {
             if($(e.target).hasClass('modal-overlay')) {
-                $('#addModal').fadeOut(200);
+                $('#addModalCat').fadeOut(200);
             }
         });
     });
