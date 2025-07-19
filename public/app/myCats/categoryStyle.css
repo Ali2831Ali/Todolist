@@ -1,0 +1,26 @@
+.myCategory-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    height: auto;
+}
+
+.Category-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+    color: #000;
+}
+
+.Category-table th,
+.Category-table td {
+    padding: 12px 15px;
+    text-align: right;
+}
+
+.Category-table th {
+    font-weight: 600;
+}

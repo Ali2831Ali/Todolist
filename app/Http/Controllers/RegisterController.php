@@ -16,8 +16,4 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function view(){
-        return view('index/index');
-    }
-
 }
