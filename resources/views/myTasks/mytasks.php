@@ -146,7 +146,6 @@
     }
 
 </style>
-
 <div class="content-section" id="mytaskSection">
     <div class="main-content">
         <div class="myTask-box">
@@ -175,24 +174,21 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    foreach ($Tasks as $Task) {
+                    ?>
                     <tr>
-                        <td>1</td>
-                        <td>تسک نمونه</td>
-                        <td>این یک توضیح تستی است</td>
+                        <td><?= $Task->id ?></td>
+                        <td><?= $Task->name ?></td>
+                        <td><?= $Task->description ?></td>
                         <td>
                             <button class="action-btn edit-btn" onclick="openEditModal('1', 'تسک نمونه', 'این یک توضیح تستی است')">ویرایش</button>
                             <button class="action-btn delete-btn" onclick="opendeleteModalTask('1')">حذف</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>تسک دیگر</td>
-                        <td>توضیحات تکمیلی برای تسک</td>
-                        <td>
-                            <button class="action-btn edit-btn" onclick="openEditModal('2', 'تسک نمونه', 'این یک توضیح تستی است')">ویرایش</button>
-                            <button class="action-btn delete-btn" onclick="opendeleteModalTask('2')">حذف</button>
-                        </td>
-                    </tr>
+                    <?php
+                    }
+                    ?>
                     </tbody>
                 </table>
             </div>
