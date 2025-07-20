@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{asset('app/MyTasks/taskStyle.css')}}">
 @endsection
 
+
 @section('content')
 <div class="content-section" id="mytaskSection">
     <div class="main-content">
