@@ -44,9 +44,7 @@
     </div>
 </div>
 
-@yield('main')
 @yield('content')
-
 
 <script>
     $(document).ready(function() {

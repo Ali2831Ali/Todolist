@@ -10,12 +10,12 @@ class TaskController extends Controller
     public function index()
     {
         $Tasks = Task::query()->get();
-        return view('myTasks.mytasks', compact('Tasks'));
+        return view('myTasks.index', compact('Tasks'));
     }
 
     public function create()
     {
-
+        return view('myTasks.create');
     }
 
     public function store(Request $request)
