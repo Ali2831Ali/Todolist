@@ -7,6 +7,7 @@
 
 @section('content')
 <div class="content-section" id="CategorySection">
+
     <div class="main-content">
         <div class="myCategory-box">
             <button id="addCategoryBtn" class="btn">➕ افزودن کتگوری جدید</button>
@@ -37,24 +38,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>کتگوری نمونه</td>
-                        <td>این یک توضیح تستی است</td>
-                        <td>
-                            <button class="action-btn edit-btn" onclick="openeditModalCat('1', 'کتگوری نمونه', 'این یک توضیح تستی است')">ویرایش</button>
-                            <button class="action-btn delete-btn" onclick="opendeleteModalCat('1')">حذف</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>کتگوری دیگر</td>
-                        <td>توضیحات تکمیلی برای کتگوری</td>
-                        <td>
-                            <button class="action-btn edit-btn" onclick="openeditModalCat('2', 'کتگوری نمونه', 'این یک توضیح تستی است')">ویرایش</button>
-                            <button class="action-btn delete-btn" onclick="opendeleteModalCat('2')">حذف</button>
-                        </td>
-                    </tr>
+                    @foreach($Category as $row)
+                        <tr>
+                            <td>{{$row->id}}</td>
+                            <td>{{$row->name}}</td>
+                            <td>{{$row->description}}</td>
+                            <td>
+                                <button class="action-btn edit-btn" onclick="openeditModalCat('1', 'کتگوری نمونه', 'این یک توضیح تستی است')">ویرایش</button>
+                                <button class="action-btn delete-btn" onclick="opendeleteModalCat('1')">حذف</button>
+                            </td>
+                        </tr>
+                    @endforeach
+
                     </tbody>
                 </table>
             </div>

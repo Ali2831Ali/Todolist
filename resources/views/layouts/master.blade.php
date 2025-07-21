@@ -21,68 +21,35 @@
             <h1>to do list</h1>
             <small>www.todolist.com</small>
         </div>
-        <div class="nav-item" data-target="#dashboardSection">
+        <div class="nav-item @if(request()->route()->getName() == 'dashboard') active @endif">
             <i class="fas fa-passport"></i>
-            Dashboard
+            <a href="{{route('dashboard')}}">Dashboard</a>
         </div>
-        <div class="nav-item" data-target="#mytaskSection">
+        <div class="nav-item @if(request()->route()->getName() == 'task.index') active @endif">
             <i class="fas fa-tasks"></i>
-            My Task
+            <a href="{{route('task.index')}}">My Task</a>
         </div>
-        <div class="nav-item" data-target="#CategorySection">
+        <div class="nav-item @if(request()->route()->getName() == 'category.index') active @endif">
             <i class="fas fa-layer-group"></i>
-            Task Categories
+
+            <a href="{{route('category.index')}}">Task Categories</a>
         </div>
-        <div class="nav-item" data-target="#settingsSection">
+        <div class="nav-item @if(request()->route()->getName() == 'Setting') active @endif">
             <i class="fas fa-cog"></i>
-            Settings
+
+            <a href="{{route('Setting')}}">Settings</a>
         </div>
-        <div class="nav-item" data-target="#helpSection">
+        <div class="nav-item @if(request()->route()->getName() == 'Help') active @endif">
             <i class="fas fa-question-circle"></i>
-            Help
+
+            <a href="{{route('Help')}}">Help</a>
         </div>
     </div>
+
+
+    @yield('content')
+
 </div>
 
-@yield('content')
-
-<script>
-    $(document).ready(function() {
-        // Sidebar Navigation
-        const $navItems = $('.nav-item');
-        let $activeNavItem = $navItems.first();
-
-        function setActiveNavItem($item) {
-            $activeNavItem.removeClass('active');
-            $item.addClass('active');
-            $activeNavItem = $item;
-
-            // Hide all content sections
-            $('.content-section').hide();
-            // Show target section
-            $($item.data('target')).show();
-        }
-
-        $navItems.on('click', function() {
-            setActiveNavItem($(this));
-        });
-
-        // Status Filter
-        $('.status-label').on('click', function() {
-            const status = $(this).data('status');
-            $('.task-card').each(function() {
-                $(this).toggle($(this).data('status') === status);
-            });
-        });
-
-        // Modal Handling
-        $('[data-action="back"]').on('click', function() {
-            $('#actionModal').modal('show');
-        });
-
-        // Initialize
-        setActiveNavItem($activeNavItem);
-    });
-</script>
 </body>
 </html>
