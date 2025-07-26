@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
 @section('head')
-    <title>myCats</title>
-    <link rel="stylesheet" href="{{asset('app/myCats/categoryStyle.css')}}">
+    <title>myTasks</title>
+    <link rel="stylesheet" href="{{asset('app/myTasks/taskStyle.css')}}">
 @endsection
 
 @section('content')

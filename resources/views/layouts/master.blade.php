@@ -34,16 +34,6 @@
 
             <a href="{{route('category.index')}}">Task Categories</a>
         </div>
-        <div class="nav-item @if(request()->route()->getName() == 'Setting') active @endif">
-            <i class="fas fa-cog"></i>
-
-            <a href="{{route('Setting')}}">Settings</a>
-        </div>
-        <div class="nav-item @if(request()->route()->getName() == 'Help') active @endif">
-            <i class="fas fa-question-circle"></i>
-
-            <a href="{{route('Help')}}">Help</a>
-        </div>
     </div>
 
 
