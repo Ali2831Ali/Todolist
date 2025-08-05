@@ -1,10 +1,3 @@
-@extends('layouts.master')
-
-@section('head')
-    <title>Dashboard</title>
-@endsection
-
-@section('content')
 <div class="content-section" id="dashboardSection">
     <div class="main-content">
         <div class="welcome-box">
@@ -59,4 +52,3 @@
     </div>
 
 </div>
-@endsection

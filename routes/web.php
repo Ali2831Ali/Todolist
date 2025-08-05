@@ -1,18 +1,19 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\TaskController;
+
+use App\Livewire\Sidebar;
+use App\Models\Task;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('dashboard.index');
-})->name('dashboard');
+route::get('/',Sidebar::class);
+Route::post('/submit-contact', function (Request $request) {
+    $data = $request->validate([
+        'title' => 'required|string',
+        'description' => 'required|text',
+    ]);
 
+    $Task = Task::all();
 
-
-//route::get('/register',[RegisterController::class,'view']);
-route::get('/task/create',[TaskController::class,'create']);
-route::get('/task',[TaskController::class,'index'])->name('task.index');
-route::get('/category',[CategoryController::class,'index'])->name('category.index');
-route::get('/Setting',function(){dd('soon');})->name('Setting');
-route::get('/Help',function(){dd('soon');})->name('Help');
+    return response()->json(['message' => 'اطلاعات با موفقیت ذخیره شد', 'id' => $Task->id]);
+});
