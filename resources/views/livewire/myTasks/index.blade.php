@@ -7,6 +7,9 @@
                 <livewire:myTasks.create />
             @endif
 
+
+
+
             <div class="row">
                 <table class="task-table">
                     <thead>
@@ -18,11 +21,11 @@
                     </tr>
                     </thead>
                     <tbody>
-
+                    @foreach($Tasks as $Task)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$Task['id']}}</td>
+                        <td>{{$Task['name']}}</td>
+                        <td>{{$Task['description']}}</td>
                         <td>
                             <button class="action-btn edit-btn" wire:click="ShowEdit">ویرایش
 
@@ -32,7 +35,7 @@
                             </button>
                         </td>
                     </tr>
-
+                    @endforeach
                     </tbody>
                 </table>
             </div>

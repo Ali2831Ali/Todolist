@@ -7,9 +7,11 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    public $showCreate  = false;
-    public $showEdit  = false;
-    public $showDelete  = false;
+    public bool $showCreate  = false;
+    public bool $showEdit  = false;
+    public bool $showDelete  = false;
+
+    public array $Tasks= [];
 
     protected $listeners = ['CloseEdit','CloseCreate','CloseDelete'];
     public function ShowCreate()
@@ -39,12 +41,9 @@ class Index extends Component
         $this->showDelete = false;
     }
 
-
-
-    public array $Tasks= [];
-    public function index()
+    public function mount()
     {
-        $this->Tasks = Task::query()->get()->toArray();
+        $this->Tasks = Task::all()->toArray();
     }
 
     public function render()

@@ -7,7 +7,7 @@
         <input type="hidden" id="editTaskId">
         <div class="input-group">
             <label>اسم تسک:</label>
-            <input type="text" class="modal-input" id="editTaskName">
+            <input type="text" class="modal-input" id="editTaskName" >
         </div>
         <div class="input-group">
             <label>توضیحات:</label>
