@@ -12,7 +12,9 @@ class Index extends Component
     public bool $showDelete  = false;
 
     public array $Tasks= [];
-
+    public ?int $editTaskId = null;
+    public string|null $editTaskName = '';
+    public string $editTaskDesc = '';
     protected $listeners = ['CloseEdit','CloseCreate','CloseDelete'];
     public function ShowCreate()
     {
@@ -23,13 +25,17 @@ class Index extends Component
         $this->showCreate = false;
     }
 
-    public function ShowEdit()
+    public function ShowEdit($id,$name,$description)
     {
+        $this->editTaskId = $id;
+        $this->editTaskName = $name;
+        $this->editTaskDesc = $description;
         $this->showEdit = true;
     }
     public function CloseEdit()
     {
         $this->showEdit = false;
+        $this->Tasks = Task::all()->toArray();
     }
 
     public function ShowDelete()

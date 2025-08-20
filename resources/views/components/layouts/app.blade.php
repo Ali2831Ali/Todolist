@@ -22,6 +22,27 @@
 
 
 @stack('scripts')
-
+<script>
+    function dataLoader() {
+        return {
+            loading: false,
+            result: '',
+            loadData() {
+                this.loading = true;
+                fetch('/my-data')  // اینجا آدرس روت خودت رو بزن
+                    .then(res => res.json())
+                    .then(data => {
+                        this.result = data.message;
+                    })
+                    .catch(() => {
+                        this.result = 'خطا در دریافت اطلاعات';
+                    })
+                    .finally(() => {
+                        this.loading = false;
+                    });
+            }
+        }
+    }
+</script>
 </body>
 </html>

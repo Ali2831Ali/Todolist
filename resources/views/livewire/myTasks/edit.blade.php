@@ -7,14 +7,21 @@
         <input type="hidden" id="editTaskId">
         <div class="input-group">
             <label>اسم تسک:</label>
-            <input type="text" class="modal-input" id="editTaskName" >
+            <input wire:model="title" type="text" class="modal-input" id="editTaskName">
         </div>
         <div class="input-group">
             <label>توضیحات:</label>
-            <textarea class="modal-input" id="editTaskDesc" rows="3"></textarea>
+            <textarea wire:model="description" class="modal-input" id="editTaskDesc" rows="3">
+
+            </textarea>
         </div>
+        @error('title')
+        <div style="color: red; font-size: 14px; margin-top: 5px;">
+            خطا: {{ $message }}
+        </div>
+        @enderror
         <div class="modal-actions">
-            <button class="btn confirm-btn" onclick="saveChanges()">ذخیره تغییرات</button>
+            <button class="btn confirm-btn" wire:click="saveChanges">ذخیره تغییرات</button>
             <button class="btn cancel-btn" wire:click="CloseEdit">لغو</button>
         </div>
     </div>
