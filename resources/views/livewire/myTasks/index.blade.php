@@ -28,7 +28,7 @@
                             <button class="action-btn edit-btn" wire:click="ShowEdit({{$Task['id']}},'{{$Task['name']}}','{{$Task['description']}}')">ویرایش
                             </button>
                             <button class="action-btn delete-btn"
-                                    wire:click="ShowDelete">حذف
+                                    wire:click="ShowDelete({{$Task['id']}})">حذف
                             </button>
                         </td>
                     </tr>
@@ -38,12 +38,12 @@
             </div>
 
             @if($showEdit)
-                <livewire:myTasks.edit :taskId="$editTaskId" :name="$editTaskName" :description="$editTaskDesc" />
+                <livewire:myTasks.Edit :taskId="$editTaskId" :name="$editTaskName" :description="$editTaskDesc" />
             @endif
 
 
             @if($showDelete)
-                <livewire:myTasks.Delete />
+                <livewire:myTasks.Delete  :deleteId="$DeleteTaskId"/>
             @endif
 
 

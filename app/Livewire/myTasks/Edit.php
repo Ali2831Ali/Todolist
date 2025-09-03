@@ -9,20 +9,20 @@ class Edit extends Component
 {
     public int $taskId;
 
-    public string $title='';
+    public string $name='';
     public string $description='';
 
 
     public function mount($taskId,$name,$description)
     {
         $this->taskId = $taskId;
-        $this->title = $name;
+        $this->name = $name;
         $this->description = $description;
     }
     public function saveChanges()
     {
         $validatedData = $this->validate([
-            'title' => 'required|string|max:255|min:3',
+            'name' => 'required|string|max:255|min:3',
             'description' => 'required|string|max:255|min:3',
         ]);
         $task = Task::findOrFail($this->taskId);

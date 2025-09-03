@@ -391,5 +391,9 @@ body {
     font-weight: 600;
 }
 
-
+.error-btn{
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
 

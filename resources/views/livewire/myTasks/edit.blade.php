@@ -7,7 +7,7 @@
         <input type="hidden" id="editTaskId">
         <div class="input-group">
             <label>اسم تسک:</label>
-            <input wire:model="title" type="text" class="modal-input" id="editTaskName">
+            <input wire:model="name" type="text" class="modal-input" id="editTaskName">
         </div>
         <div class="input-group">
             <label>توضیحات:</label>
@@ -15,8 +15,8 @@
 
             </textarea>
         </div>
-        @error('title')
-        <div style="color: red; font-size: 14px; margin-top: 5px;">
+        @error('name')
+        <div class="error-btn">
             خطا: {{ $message }}
         </div>
         @enderror
