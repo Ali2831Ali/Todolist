@@ -8,6 +8,11 @@
             خطا: {{ $message }}
         </div>
         @enderror
+        @error('description')
+        <div class="error-btn">
+            خطا: {{ $message }}
+        </div>
+        @enderror
         <div class="action-buttons">
             <button class="btn confirm-btn" id="saveTask" wire:click="saveChanges">💾 ذخیره</button>
             <button class="btn cancel-btn" id="cancelAdd" wire:click="CloseCreate">❌ لغو</button>
